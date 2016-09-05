@@ -10,5 +10,13 @@
 //  - value: the path of the html file containing the HTML fragment of the template
 define({
     structure: "templates/structure.html",
-    myview: "templates/myview.html"
+    myview: "templates/myview.html",
+    account : "templates/account/accountDetail.html",
+    cart : "templates/account/cart.html",
+    wishlist : "templates/account/wishList.html",
+    farm : "templates/farms/farmDetail.html",
+    farmlist : "templates/farms/farmList.html",
+    product : "templates/products/productDetail.html",
+    productlist : "templates/products/productList.html",
+    productcategory : "templates/products/categoryList.html"
 });
