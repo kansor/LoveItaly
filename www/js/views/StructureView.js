@@ -4,6 +4,7 @@ define(function(require) {
   var Backbone = require("backbone");
   var Utils = require("utils");
 
+  
   var StructureView = Backbone.View.extend({
 
     constructorName: "StructureView",
@@ -12,7 +13,9 @@ define(function(require) {
 
     events: {
       "tap #nav1": "myView",
-      "tap #nav2": "map"
+      "tap #nav2": "map",
+      "tap #nav3" : "ProductList",
+      "tap #nav4" : "CategoryList"
     },
 
     initialize: function(options) {
@@ -46,15 +49,31 @@ define(function(require) {
     },
 
     map: function(event) {
+        
       Backbone.history.navigate("map", {
         trigger: true
       });
     },
 
     myView: function(event) {
+        
       Backbone.history.navigate("myview", {
         trigger: true
       });
+    },
+    ProductList: function(event){
+        
+        Backbone.history.navigate("gotoproductlist", {
+        trigger: true
+      });
+      
+    },
+    CategoryList: function(event){
+        
+        Backbone.history.navigate("gotocategorylist", {
+        trigger: true
+      });
+      
     }
   });
 
