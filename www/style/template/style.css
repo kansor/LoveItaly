@@ -303,7 +303,7 @@ input[type=text]:focus,input[type=email]:focus,input[type=number]:focus,input[ty
 }
 .page {
   background: #fff none repeat scroll 0 0;
-  /*top: 60px;*/
+  /*top: 40px;*/
 }
 .ks-slider-custom {
   height: auto;
@@ -1306,10 +1306,15 @@ tfoot{border-right: 1px solid #ccc;border-bottom: 1px solid #ccc;}
 .login-screen .view .page{top:0;}
 .register-content {
   padding: 10px;
+ 
+}
+.popup-register .popup-overlay .modal-overlay-visible{
+    top:40px;
 }
 .registerbody {
   background-color: #000;
   height: 100%;
+   top: 40px;
 }
 .register-content .inputbox > input {
   display: block;

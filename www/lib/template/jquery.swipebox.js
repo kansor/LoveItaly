@@ -1,6 +1,6 @@
 /*! Swipebox v1.4.1 | Constantin Saguin csag.co | MIT License | github.com/brutaldesign/swipebox */
 
-;( function ( window, document, $, undefined ) {
+( function ( window, document, $, undefined ) {
 
 	$.swipebox = function( elem, options ) {
 
@@ -947,4 +947,4 @@
 
 	};
 
-}( window, document, jQuery ) );
+}( window, document, $ ) );

@@ -1,3 +1,4 @@
+//var Framework7 = require('lib/template/framework7.min');
 // Initialize your app
 var myApp = new Framework7();
 

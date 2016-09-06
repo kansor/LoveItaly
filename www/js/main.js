@@ -13,7 +13,8 @@ require.config({
     preloader: '../lib/preloader/pre-loader',
     utils: '../lib/utils/utils',
     framework7 : '../lib/template/framework7.min',
-    swiper: '../lib/template/jquery.swipebox'
+    swiper: '../lib/template/jquery.swipebox',
+//    myapp: '../lib/template/my-app'
   },
   shim: {
     'jquery': {
