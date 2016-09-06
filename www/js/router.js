@@ -6,9 +6,14 @@ define(function (require) {
     var StructureView = require("views/StructureView");
     var MyView = require("views/pages/MyView");
     var MapView = require("views/pages/MapView");
+    var Framework7 = require('framework7');
+    var myApp = new Framework7({swipePanel: 'left'});
     var ProductListView = require("views/pages/products/ProductListView");
     var ProductDetailView = require("views/pages/products/ProductDetailView");
     var CategoryListView = require("views/pages/products/CategoryListView");
+    var FarmListView = require('views/pages/farm/FarmListView');
+    var FarmDetailView = require('views/pages/farm/FarmDetailView');
+
 
     var AppRouter = Backbone.Router.extend({
         constructorName: "AppRouter",
@@ -19,7 +24,9 @@ define(function (require) {
             "map": "map",
             "gotoproductlist": "goToProductList",
             "gotoproductdetail": "goToProductDetail",
-            "gotocategorylist": "goToCategoryList"
+            "gotocategorylist": "goToCategoryList",
+            "gotofarmlist": "goToFarmList",
+            "gotofarmdetail" : "goToFarmDetail"
         },
         firstView: "myview",
         initialize: function (options) {
@@ -49,7 +56,9 @@ define(function (require) {
         // load the structure view
         showStructure: function () {
             if (!this.structureView) {
-                this.structureView = new StructureView();
+                this.structureView = new StructureView({
+                    myApp : myApp
+                });
                 // put the el element of the structure view into the DOM
                 document.body.appendChild(this.structureView.render().el);
                 this.structureView.trigger("inTheDOM");
@@ -74,6 +83,20 @@ define(function (require) {
         goToCategoryList : function (event) {
 
             var page = new CategoryListView({
+            });
+            // show the view
+            this.changePage(page);
+        },
+        goToFarmList : function (event) {
+
+            var page = new FarmListView({
+            });
+            // show the view
+            this.changePage(page);
+        },
+        goToFarmDetail : function (event) {
+
+            var page = new FarmDetailView({
             });
             // show the view
             this.changePage(page);
