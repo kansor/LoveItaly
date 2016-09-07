@@ -2,14 +2,26 @@ define(function (require) {
 
     var $ = require("jquery");
     var Backbone = require("backbone");
-    var MyModel = require("models/MyModel");
+    //MODEL
+    
+        var MyModel = require("models/MyModel");
+        //PRODUCT
+        var Product = require("models/Product");
+        var Products = require("collections/Products");
+        //CATEGORY
+        var Category = require("models/Category");
+        var Categories = require("collections/Categories");
+    
+    //VIEW
+    
     var StructureView = require("views/StructureView");
     var MyView = require("views/pages/MyView");
     var MapView = require("views/pages/MapView");
     var ProductListView = require("views/pages/products/ProductListView");
     var ProductDetailView = require("views/pages/products/ProductDetailView");
     var CategoryListView = require("views/pages/products/CategoryListView");
-
+    //Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
+    //Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
     var AppRouter = Backbone.Router.extend({
         constructorName: "AppRouter",
         routes: {
@@ -18,7 +30,7 @@ define(function (require) {
             "myview": "myView",
             "map": "map",
             "gotoproductlist": "goToProductList",
-            "gotoproductdetail": "goToProductDetail",
+            "gotoproductdetail/:key": "goToProductDetail",
             "gotocategorylist": "goToCategoryList"
         },
         firstView: "myview",
@@ -29,13 +41,13 @@ define(function (require) {
             // highlight the nav1 tab bar element as the current one
             this.structureView.setActiveTabBarElement("nav1");
             // create a model with an arbitrary attribute for testing the template engine
-            var model = new MyModel({
-                key: "Sto Cazzo"
-            });
+            var model = new Products(4);
+            model.fetch();
             // create the view
             var page = new MyView({
-                model: model
+                collection: model
             });
+            
             // show the view
             this.changePage(page);
         },
@@ -59,21 +71,28 @@ define(function (require) {
         },
         goToProductList: function (e) {
 
+            var model = new Products();
+            model.fetch();
+            // create the view
             var page = new ProductListView({
+                collection: model
             });
-            // show the view
             this.changePage(page);
         },
-        goToProductDetail: function (event) {
-
+        goToProductDetail: function (key) {
+            var model = new Product({id : key});
+            model.fetch();
             var page = new ProductDetailView({
+                model:model
             });
             // show the view
             this.changePage(page);
         },
         goToCategoryList : function (event) {
-
+            var model = new Categories();
+            model.fetch();
             var page = new CategoryListView({
+                collection:model
             });
             // show the view
             this.changePage(page);

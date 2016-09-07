@@ -1,6 +1,7 @@
 define(function(require) {
 
   var Backbone = require("backbone");
+  var Product = require("models/Product");
   var Utils = require("utils");
 
 
@@ -8,10 +9,12 @@ define(function(require) {
 
     constructorName: "ProductDetailView",
 
-
+    model: Product,
+    
     initialize: function() {
       // load the precompiled template
       this.template = Utils.templates.product;
+      this.model.on('sync', this.render, this);
       // here we can register to inTheDOM or removing events
       // this.listenTo(this, "inTheDOM", function() {
       //   $('#content').on("swipe", function(data){
@@ -31,7 +34,7 @@ define(function(require) {
     },
 
     render: function() {
-      $(this.el).html(this.template());
+      $(this.el).html(this.template(this.model.toJSON()));
 //      this.model.toJSON()
       return this;
     },

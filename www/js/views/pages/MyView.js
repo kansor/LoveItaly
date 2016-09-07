@@ -1,7 +1,8 @@
 define(function (require) {
 
     var Backbone = require("backbone");
-    var MyModel = require("models/MyModel");
+    var Products = require("collections/Products");
+    var Product = require("models/Product");
     var Utils = require("utils");
 //    var Framework7 = require('framework7');
 //    var swiper = require('swiper');
@@ -11,10 +12,21 @@ define(function (require) {
 
     var MyView = Utils.Page.extend({
         constructorName: "MyView",
-        model: MyModel,
+        collection: Products,
         initialize: function () {
             // load the precompiled template
             this.template = Utils.templates.myview;
+//            this.collection.fetch({success: function(){
+//            this.render;
+//            }});
+//            this.collection.fetch({success: function (){
+//                    this.render;
+//                    
+//                    
+//            }});
+            this.collection.on('sync', this.render, this);
+            
+            
             // here we can register to inTheDOM or removing events
             // this.listenTo(this, "inTheDOM", function() {
             //   $('#content').on("swipe", function(data){
@@ -54,7 +66,9 @@ define(function (require) {
 //            });
 //            var mySwiper = myApp.swiper('.swiper-container3', {
 //            });
-            $(this.el).html(this.template(this.model.toJSON()));
+             console.log('render');
+              console.log(this.collection);
+            $(this.el).html(this.template({Prodotti : this.collection.toJSON()}));
             return this;
         },
         goToMap: function (e) {
