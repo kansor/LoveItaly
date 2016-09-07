@@ -17,9 +17,15 @@ define(function (require) {
     var StructureView = require("views/StructureView");
     var MyView = require("views/pages/MyView");
     var MapView = require("views/pages/MapView");
+    var Framework7 = require('framework7');
+    var myApp = new Framework7({swipePanel: 'left'});
     var ProductListView = require("views/pages/products/ProductListView");
     var ProductDetailView = require("views/pages/products/ProductDetailView");
     var CategoryListView = require("views/pages/products/CategoryListView");
+    var FarmListView = require('views/pages/farm/FarmListView');
+    var FarmDetailView = require('views/pages/farm/FarmDetailView');
+
+
     //Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
     //Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
     var AppRouter = Backbone.Router.extend({
@@ -61,7 +67,9 @@ define(function (require) {
         // load the structure view
         showStructure: function () {
             if (!this.structureView) {
-                this.structureView = new StructureView();
+                this.structureView = new StructureView({
+                    myApp : myApp
+                });
                 // put the el element of the structure view into the DOM
                 document.body.appendChild(this.structureView.render().el);
                 this.structureView.trigger("inTheDOM");
@@ -93,6 +101,20 @@ define(function (require) {
             model.fetch();
             var page = new CategoryListView({
                 collection:model
+            });
+            // show the view
+            this.changePage(page);
+        },
+        goToFarmList : function (event) {
+
+            var page = new FarmListView({
+            });
+            // show the view
+            this.changePage(page);
+        },
+        goToFarmDetail : function (event) {
+
+            var page = new FarmDetailView({
             });
             // show the view
             this.changePage(page);

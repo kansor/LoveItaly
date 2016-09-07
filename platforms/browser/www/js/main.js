@@ -11,7 +11,9 @@ require.config({
     leaflet: '../lib/leaflet/leaflet',
     spin: '../lib/spin/spin.min',
     preloader: '../lib/preloader/pre-loader',
-    utils: '../lib/utils/utils'
+    utils: '../lib/utils/utils',
+    framework7 : '../lib/template/framework7.min',
+    swiper: '../lib/template/jquery.swipebox'
   },
   shim: {
     'jquery': {
@@ -25,6 +27,9 @@ require.config({
     },
     'leaflet': {
       exports: 'L'
+    },
+    'framework7': {
+      exports: 'Framework7'
     }
   }
 });

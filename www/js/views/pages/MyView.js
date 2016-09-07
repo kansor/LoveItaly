@@ -43,32 +43,8 @@ define(function (require) {
             "tap #goToMap": "goToMap"
         },
         render: function () {
-//            // Initialize your app
-//            var myApp = new Framework7();
-//
-//            // Export selectors engine
-//            var $$ = Dom7;
-//
-//            // Add view
-//            var mainView = myApp.addView('.view-main', {
-//                // Because we use fixed-through navbar we can enable dynamic navbar
-//                dynamicNavbar: true
-//            });
-//
-//            var mySwiper = myApp.swiper('.swiper-container', {
-//                pagination: '.swiper-pagination',
-//                paginationClickable: true,
-//                autoplay: 2500,
-//                autoplayDisableOnInteraction: false
-//            });
-//
-//            var mySwiper = myApp.swiper('.swiper-container2', {
-//            });
-//            var mySwiper = myApp.swiper('.swiper-container3', {
-//            });
-             console.log('render');
-              console.log(this.collection);
-            $(this.el).html(this.template({Prodotti : this.collection.toJSON()}));
+
+            $(this.el).html(this.template(this.model.toJSON()));
             return this;
         },
         goToMap: function (e) {

@@ -3,9 +3,12 @@ define(function(require) {
   var $ = require("jquery");
   var Backbone = require("backbone");
   var MyModel = require("models/MyModel");
+  var Product = require("models/Product");
   var StructureView = require("views/StructureView");
   var MyView = require("views/pages/MyView");
   var MapView = require("views/pages/MapView");
+  var ProductView = require("views/pages/productSingleView");
+  
 
   var AppRouter = Backbone.Router.extend({
 
@@ -28,16 +31,16 @@ define(function(require) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav1");
       // create a model with an arbitrary attribute for testing the template engine
-      var model = new MyModel({
-        key: "Sto Cazzo"
-      });
-      // create the view
-      var page = new MyView({
+      var model = new Product(91);
+      model.fetch();
+      var page = new ProductView({
         model: model
       });
       // show the view
       this.changePage(page);
     },
+
+    
 
     map: function() {
       // highlight the nav2 tab bar element as the current one

@@ -55,81 +55,81 @@ define(function(require) {
       });
     },
 
-    prodottiBio: function(e) {
-      Backbone.history.navigate("map", {
+    prodottiBio: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    prodottiForno: function(e) {
-      Backbone.history.navigate("map", {
+    prodottiForno: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    ortaggi: function(e) {
-      Backbone.history.navigate("map", {
+    ortaggi:function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     }
     ,
 
-    frutta: function(e) {
-      Backbone.history.navigate("map", {
+    frutta: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    legumi: function(e) {
-      Backbone.history.navigate("map", {
+    legumi:function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    formaggi: function(e) {
-      Backbone.history.navigate("map", {
+    formaggi: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    olio: function(e) {
-      Backbone.history.navigate("map", {
+    olio: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    vino: function(e) {
-      Backbone.history.navigate("map", {
+    vino: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    miele: function(e) {
-      Backbone.history.navigate("map", {
+    miele: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    condimenti: function(e) {
-      Backbone.history.navigate("map", {
+    condimenti: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    conserve: function(e) {
-      Backbone.history.navigate("map", {
+    conserve: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    carne: function(e) {
-      Backbone.history.navigate("map", {
+    carne: function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     },
 
-    infusi: function(e) {
-      Backbone.history.navigate("map", {
+    infusi:function(ev) {
+      Backbone.history.navigate("category/" + $(ev.currentTarget).data('id'), {
         trigger: true
       });
     }
