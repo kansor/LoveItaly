@@ -149,30 +149,15 @@
                             </div>	
                             <div class="clear"></div>
                             <div class="row">
+                                {{#each Prodotti}}
                                 <div class="shopbox">
                                     <a href="shop.html">
                                         <img src="img/discover/1.jpg" alt="" />
-                                        <h3>WOMEN</h3>
+                                        <h3>{{name}}</h3>
                                     </a>	
                                 </div>
-                                <div class="shopbox">
-                                    <a href="shop.html">
-                                        <img src="img/discover/2.jpg" alt="" />
-                                        <h3>MEN</h3>
-                                    </a>
-                                </div>
-                                <div class="shopbox">
-                                    <a href="shop.html">
-                                        <img src="img/discover/3.jpg" alt="" />
-                                        <h3>LIFESTYLE</h3>
-                                    </a>
-                                </div>
-                                <div class="shopbox">
-                                    <a href="shop.html">
-                                        <img src="img/discover/4.jpg" alt="" />
-                                        <h3>BEAUTY</h3>
-                                    </a>
-                                </div>
+                                  {{/each}}
+                               
                             </div>
                         </div>
                         <!-- shop discover area start-->
